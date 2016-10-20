@@ -33,7 +33,24 @@ namespace Csn.OrmEdd.Dal.DataMappers
 
         public Person Get(int id)
         {
-            throw new NotImplementedException();
+            Person person = new Person();
+            using (_connection)
+            {
+                IDbCommand command = _connection.CreateCommand();
+                command.Connection = _connection;
+                command.CommandText = @"SELECT * FROM [Persons] WHERE [Id] = @id";
+                IDataParameter param = command.CreateParameter();
+                param.ParameterName = "@id";
+                param.Value = id;
+                command.Parameters.Add(param);
+
+                _connection.Open();
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    person = Hydrate(reader);
+                }
+            }
+            return person;            
         }
 
         public List<Person> GetAll()
@@ -50,22 +67,73 @@ namespace Csn.OrmEdd.Dal.DataMappers
                 {
                     while (reader.Read())
                     {
-                        // persons.Add(Hydrate(reader));
-                        // Person person = new Person();
-                        // person.Id = (int)reader["Id"];
-
+                        Hydrate(reader);
                     } 
                 }
             }
             return persons;
         }
 
+        private Person Hydrate(IDataReader reader)
+        {
+            Person person = new Person();
+            person.Id = (int)reader["Id"];
+            person.Name = (string)reader["FirstName"];
+            person.FamilyName = (string)reader["FamilyName"];
+            person.BirthDate = DateTime.Parse((string)reader["BirthDate"]);
+            person.Address = (string)reader["Address"];
+            return person;
+        }
 
         public void Insert(Person person)
         {
-            throw new NotImplementedException();
+            using(_connection)
+            {
+                try
+                {
+                    IDbCommand command = _connection.CreateCommand();
+                    command.Connection = _connection;
+                    command.CommandText = @"INSERT INTO [Persons] 
+                            ([FirstName],[FamilyName],[BirthDate],[Address]) VALUES 
+                            (@Name, @FamilyName, @BirthDate,@Address)";
+                    Extract(person, command);
+                    _connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {       
+                    throw e;
+                }
+            }
         }
 
+        private void Extract(Person person, IDbCommand command)
+        {
+            IDataParameter param = command.CreateParameter();
+            //param.ParameterName = "@Id";
+            //param.Value = person.Id;
+            //command.Parameters.Add(param);
+
+            param = command.CreateParameter();
+            param.ParameterName = "@Name";
+            param.Value = person.Name;
+            command.Parameters.Add(param);
+
+            param = command.CreateParameter();
+            param.ParameterName = "@FamilyName";
+            param.Value = person.FamilyName;
+            command.Parameters.Add(param);
+
+            param = command.CreateParameter();
+            param.ParameterName = "@Birthdate";
+            param.Value = person.BirthDate;
+            command.Parameters.Add(param);
+
+            param = command.CreateParameter();
+            param.ParameterName = "@Address";
+            param.Value = person.Address;
+            command.Parameters.Add(param);
+        }
         public void Update(Person person)
         {
             throw new NotImplementedException();
