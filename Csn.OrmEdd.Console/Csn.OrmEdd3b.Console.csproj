@@ -7,8 +7,8 @@
     <ProjectGuid>{81561AEE-8879-463B-9D3C-50A859DD777F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Csn.OrmEdd.Console</RootNamespace>
-    <AssemblyName>Csn.OrmEdd.Console</AssemblyName>
+    <RootNamespace>Csn.OrmEdd3b.Console</RootNamespace>
+    <AssemblyName>Csn.OrmEdd3b.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,6 +48,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\CsnOrmEdd3b.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Csn.OrmEdd.Dal\Csn.OrmEdd3b.Dal.csproj">
       <Project>{4d9db086-a706-4907-9a17-b970e27df1ea}</Project>
       <Name>Csn.OrmEdd3b.Dal</Name>
@@ -60,11 +65,6 @@
       <Project>{6f5dfda4-74a8-469f-a113-7c25d0c8b3ad}</Project>
       <Name>Csn.OrmEdd3b.Services</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Data\CsnOrmEdd3b.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

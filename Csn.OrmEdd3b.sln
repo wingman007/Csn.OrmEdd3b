@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.Dal", "Csn.Orm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.Services", "Csn.OrmEdd.Services\Csn.OrmEdd3b.Services.csproj", "{6F5DFDA4-74A8-469F-A113-7C25D0C8B3AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.App", "Csn.OrmEdd3b.App\Csn.OrmEdd3b.App.csproj", "{03852028-0E77-4728-A930-BB84E2EDF6ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6F5DFDA4-74A8-469F-A113-7C25D0C8B3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F5DFDA4-74A8-469F-A113-7C25D0C8B3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F5DFDA4-74A8-469F-A113-7C25D0C8B3AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03852028-0E77-4728-A930-BB84E2EDF6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03852028-0E77-4728-A930-BB84E2EDF6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03852028-0E77-4728-A930-BB84E2EDF6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03852028-0E77-4728-A930-BB84E2EDF6ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
