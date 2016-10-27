@@ -1,6 +1,6 @@
-﻿namespace Csn.OrmEdd.Services
+﻿namespace Csn.OrmEdd3b.Services
 {
-    using Csn.OrmEdd.Models;
+    using Csn.OrmEdd3b.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;

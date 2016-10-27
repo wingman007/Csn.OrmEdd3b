@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Csn.OrmEdd.Models
+namespace Csn.OrmEdd3b.Models
 {
     public class Phone
     {

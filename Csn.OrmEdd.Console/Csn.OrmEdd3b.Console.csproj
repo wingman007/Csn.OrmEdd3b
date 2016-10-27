@@ -48,17 +48,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Csn.OrmEdd.Dal\Csn.OrmEdd.Dal.csproj">
+    <ProjectReference Include="..\Csn.OrmEdd.Dal\Csn.OrmEdd3b.Dal.csproj">
       <Project>{4d9db086-a706-4907-9a17-b970e27df1ea}</Project>
-      <Name>Csn.OrmEdd.Dal</Name>
+      <Name>Csn.OrmEdd3b.Dal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Csn.OrmEdd.Models\Csn.OrmEdd.Models.csproj">
+    <ProjectReference Include="..\Csn.OrmEdd.Models\Csn.OrmEdd3b.Models.csproj">
       <Project>{a553c546-69d3-45b4-927b-14a0cb7d4ffa}</Project>
-      <Name>Csn.OrmEdd.Models</Name>
+      <Name>Csn.OrmEdd3b.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Csn.OrmEdd.Services\Csn.OrmEdd.Services.csproj">
+    <ProjectReference Include="..\Csn.OrmEdd.Services\Csn.OrmEdd3b.Services.csproj">
       <Project>{6f5dfda4-74a8-469f-a113-7c25d0c8b3ad}</Project>
-      <Name>Csn.OrmEdd.Services</Name>
+      <Name>Csn.OrmEdd3b.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

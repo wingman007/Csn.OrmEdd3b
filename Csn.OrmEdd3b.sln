@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd.Models", "Csn.OrmEdd.Models\Csn.OrmEdd.Models.csproj", "{A553C546-69D3-45B4-927B-14A0CB7D4FFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.Models", "Csn.OrmEdd.Models\Csn.OrmEdd3b.Models.csproj", "{A553C546-69D3-45B4-927B-14A0CB7D4FFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd.Console", "Csn.OrmEdd.Console\Csn.OrmEdd.Console.csproj", "{81561AEE-8879-463B-9D3C-50A859DD777F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.Console", "Csn.OrmEdd.Console\Csn.OrmEdd3b.Console.csproj", "{81561AEE-8879-463B-9D3C-50A859DD777F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd.Dal", "Csn.OrmEdd.Dal\Csn.OrmEdd.Dal.csproj", "{4D9DB086-A706-4907-9A17-B970E27DF1EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.Dal", "Csn.OrmEdd.Dal\Csn.OrmEdd3b.Dal.csproj", "{4D9DB086-A706-4907-9A17-B970E27DF1EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd.Services", "Csn.OrmEdd.Services\Csn.OrmEdd.Services.csproj", "{6F5DFDA4-74A8-469F-A113-7C25D0C8B3AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.Services", "Csn.OrmEdd.Services\Csn.OrmEdd3b.Services.csproj", "{6F5DFDA4-74A8-469F-A113-7C25D0C8B3AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

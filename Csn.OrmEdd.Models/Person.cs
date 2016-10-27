@@ -1,4 +1,4 @@
-﻿namespace Csn.OrmEdd.Models
+﻿namespace Csn.OrmEdd3b.Models
 {
     using System;
     using System.Collections.Generic;

@@ -1,14 +1,14 @@
-﻿namespace Csn.OrmEdd.Console
+﻿namespace Csn.OrmEdd3b.Console
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using Csn.OrmEdd.Models;
-    using Csn.OrmEdd.Dal.DataMappers;
+    using Csn.OrmEdd3b.Models;
+    using Csn.OrmEdd3b.Dal.DataMappers;
     using System.Globalization;
-    using Csn.OrmEdd.Services;
+    using Csn.OrmEdd3b.Services;
     class Program
     {
         static void Main(string[] args)

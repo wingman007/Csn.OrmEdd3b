@@ -1,4 +1,4 @@
-﻿using Csn.OrmEdd.Models;
+﻿using Csn.OrmEdd3b.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Csn.OrmEdd.Dal.DataMappers
+namespace Csn.OrmEdd3b.Dal.DataMappers
 {
     public class PersonAdoDataMapper : IDataMapper<Person>
     {
-        // Provider=Microsoft.Jet.OLEDB.4.0;Data Source="C:\Users\fmi\Documents\Visual Studio 2013\Projects\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb";Persist Security Info=True
+        // Provider=Microsoft.Jet.OLEDB.4.0;Data Source="C:\Users\fmi\Documents\Visual Studio 2013\Projects\Csn.OrmEdd3b\Csn.OrmEdd3b.Console\App_Data\CsnOrmEdd3b.mdb";Persist Security Info=True
         private readonly string _connectionString;
 
         private readonly IDbConnection _connection; 

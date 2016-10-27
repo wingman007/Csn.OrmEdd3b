@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Csn.OrmEdd.Dal.DataMappers;
+using Csn.OrmEdd3b.Dal.DataMappers;
 
-namespace Csn.OrmEdd.Dal.Repositories
+namespace Csn.OrmEdd3b.Dal.Repositories
 {
     public class Repository<T> : IRepository<T> where T: class
     {

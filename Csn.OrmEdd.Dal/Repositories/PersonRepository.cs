@@ -1,12 +1,12 @@
-﻿using Csn.OrmEdd.Dal.DataMappers;
-using Csn.OrmEdd.Models;
+﻿using Csn.OrmEdd3b.Dal.DataMappers;
+using Csn.OrmEdd3b.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Csn.OrmEdd.Dal.Repositories
+namespace Csn.OrmEdd3b.Dal.Repositories
 {
     public class PersonRepository : IRepository<Person>
     {

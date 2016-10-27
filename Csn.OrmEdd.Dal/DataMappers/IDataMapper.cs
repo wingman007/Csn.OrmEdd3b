@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Csn.OrmEdd.Dal.DataMappers
+namespace Csn.OrmEdd3b.Dal.DataMappers
 {
     public interface IDataMapper<T> where T : class
     {
