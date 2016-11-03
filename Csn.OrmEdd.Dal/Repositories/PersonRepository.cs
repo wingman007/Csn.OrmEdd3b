@@ -24,11 +24,12 @@ namespace Csn.OrmEdd3b.Dal.Repositories
             return _dataSet;
         }
 
-        public Person Get(int id)
+        public Person Get(object id)
         {
             // throw new NotImplementedException();
             // _dataMapper.Get(id);
-            return _dataSet.Find(c => c.Id == id);
+            // return _dataSet.Find(c => c.Id == id);
+            return _dataSet.Find(c => c.Id == (int)id);
         }
 
         public IEnumerable<Person> Find(System.Linq.Expressions.Expression<Func<Person, bool>> prdicate)
@@ -42,6 +43,11 @@ namespace Csn.OrmEdd3b.Dal.Repositories
         }
 
         public void Remove(Person entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Person Update(Person entity)
         {
             throw new NotImplementedException();
         }

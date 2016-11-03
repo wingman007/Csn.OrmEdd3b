@@ -7,11 +7,11 @@ using Csn.OrmEdd3b.Dal.DataMappers;
 
 namespace Csn.OrmEdd3b.Dal.Repositories
 {
-    public class Repository<T> : IRepository<T> where T: class
+    public class GenericFileAdoRepository<T> : IRepository<T> where T: class
     {
         private readonly List<T> _dataSet;
 
-        public Repository(IDataMapper<T> dataMapper)
+        public GenericFileAdoRepository(IDataMapper<T> dataMapper)
         {
             _dataSet = dataMapper.GetAll();
         }
@@ -22,7 +22,7 @@ namespace Csn.OrmEdd3b.Dal.Repositories
             return _dataSet;
         }
 
-        public T Get(int id)
+        public T Get(object id)
         {
             // T entityTmp;
             throw new NotImplementedException();
@@ -50,5 +50,13 @@ namespace Csn.OrmEdd3b.Dal.Repositories
         {
             throw new NotImplementedException();
         }
+
+
+        public T Update(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

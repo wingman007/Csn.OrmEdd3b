@@ -1,4 +1,5 @@
 ﻿using Csn.OrmEdd3b.Dal.Repositories;
+using Csn.OrmEdd3b.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,9 @@ namespace Csn.OrmEdd3b.Dal.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {
-        PersonRepository Persons { get; } // private set;
-
-        void SaveAll();
+        // PersonRepository Persons { get; } // private set;
+        IRepository<Person> Persons { get; }
+        IRepository<Phone> Phones { get; }
+        void SaveChanges(); // SaveAll();
     }
 }

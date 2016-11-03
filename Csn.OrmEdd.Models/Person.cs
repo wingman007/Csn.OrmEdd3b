@@ -2,6 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Persons")]
     public class Person
     {
         public int Id { get; set; }
