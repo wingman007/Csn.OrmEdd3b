@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("Persons")]
-    public class Person
+    public class Person // : IId
     {
         public int Id { get; set; }
         public string Name { get; set; }

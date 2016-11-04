@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IId.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Phone.cs" />

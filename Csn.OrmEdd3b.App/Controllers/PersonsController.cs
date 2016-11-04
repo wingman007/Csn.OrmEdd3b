@@ -19,15 +19,22 @@ namespace Csn.OrmEdd3b.App.Controllers
         // private CsnOrmEdd3bDbContext db = new CsnOrmEdd3bDbContext();
 
         // 2. Working with our adapter between Ef and the App
-//-        private EfUnitOfWork db = new EfUnitOfWork(new CsnOrmEdd3bDbContext());
+        private EfUnitOfWork db = new EfUnitOfWork(new CsnOrmEdd3bDbContext());
 
         // 3. Working with ADO
         // Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Stoyan\Source\Repos\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb
-//      <connectionStrings>
-//          <add name = "ConnectionString" connectionString="data source=.;Initial Catalog=MyDatabase;Integrated Security=SSPI" providerName="System.Data.SqlClient" />
-//      </connectionStrings>
+        //      <connectionStrings>
+        //          <add name = "ConnectionString" connectionString="data source=.;Initial Catalog=MyDatabase;Integrated Security=SSPI" providerName="System.Data.SqlClient" />
+        //      </connectionStrings>
         // System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString
-        private AdoUnitOfWork db = new AdoUnitOfWork(new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Stoyan\Source\Repos\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb"));
+//-        private AdoUnitOfWork db = new AdoUnitOfWork(new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Stoyan\Source\Repos\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb"));
+
+        // 4. Work with Files
+        // Only the unit of work will be different
+        // Access to the path 'C:\Program Files (x86)\IIS Express\Person.csv' is denied.
+        // private FileUnitOfWork db = new FileUnitOfWork(); // "C:\Users\Stoyan"
+
+//-        private FileUnitOfWork db = new FileUnitOfWork(@"C:\Users\Stoyan");
 
         // GET: /Persons/
         public ActionResult Index()
