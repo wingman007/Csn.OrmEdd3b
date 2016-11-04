@@ -36,69 +36,73 @@ namespace Csn.OrmEdd3b.Dal.DataMappers
         public List<Person> GetAll()
         {
             List<Person> persons = new List<Person>();
-            using (_connection)
+            //            using (_connection) // With "using" _connection is loosing the value of its constring property
+            //            {
+            try
             {
-                try
-                {
-                    #region Preparation can be outside of try
-                    IDbCommand command = _connection.CreateCommand();
-                    command.Connection = _connection;
-                    command.CommandText = @"SELECT * FROM [Persons]";
-                    #endregion
+                #region Preparation can be outside of try
+                IDbCommand command = _connection.CreateCommand();
+                command.Connection = _connection;
+                command.CommandText = @"SELECT * FROM [Persons]";
+                #endregion
 
-                    _connection.Open();
-                    //Perform DB operation here i.e. any CRUD operation 
-                    using (IDataReader reader = command.ExecuteReader())
+                _connection.Open();
+                //Perform DB operation here i.e. any CRUD operation 
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            persons.Add(Hydrate(reader));
-                        }
+                        persons.Add(Hydrate(reader));
                     }
                 }
-                catch (Exception e)
-                {
-                    // Log 
-                    throw e;
-                }
             }
+            catch (Exception e)
+            {
+                // Log 
+                throw e;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            //            }
             return persons;
         }
 
         public Person Get(object id) // int
         {
             Person person = new Person();
-            using (_connection) // with using the conneciton is loosing the connection string for some strange reason on ns2 comp. SO I will use try catch. If more than 1 commands need to be executed I am loosing the connectionString in the conneciton object
+            //            using (_connection) // with using the conneciton is loosing the connection string for some strange reason on ns2 comp. SO I will use try catch. If more than 1 commands need to be executed I am loosing the connectionString in the conneciton object
+            //            {
+            try
             {
-                try
-                {
-                    #region Preparation can be outside of try
-                    IDbCommand command = _connection.CreateCommand();
-                    command.Connection = _connection;
-                    command.CommandText = @"SELECT * FROM [Persons] WHERE ID = @id";
+                #region Preparation can be outside of try
+                IDbCommand command = _connection.CreateCommand();
+                command.Connection = _connection;
+                command.CommandText = @"SELECT * FROM [Persons] WHERE ID = @id";
 
-                    IDataParameter param = command.CreateParameter();
-                    param.ParameterName = "@id";
-                    param.Value = (int)id;
-                    command.Parameters.Add(param);
-                    #endregion
+                IDataParameter param = command.CreateParameter();
+                param.ParameterName = "@id";
+                param.Value = (int)id;
+                command.Parameters.Add(param);
+                #endregion
 
-                    _connection.Open();
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read()) person = Hydrate(reader);
-                    }
-                }
-                catch (Exception e)
+                _connection.Open();
+                using (IDataReader reader = command.ExecuteReader())
                 {
-                    // Log
-                    throw e;
+                    if (reader.Read()) person = Hydrate(reader);
                 }
-//            finally
-//            {
-//                _connection.Close();
-//            }
             }
+            catch (Exception e)
+            {
+                // Log
+                throw e;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            //            }
             return person;
         }
 
@@ -118,65 +122,73 @@ namespace Csn.OrmEdd3b.Dal.DataMappers
 
         public void Insert(Person entity)
         {
-            using (_connection)
+            //            using (_connection) With "using" _connection is loosing the value of its constring property
+            //            {
+            try
             {
-                try
-                {
-                    #region Can be outside try
-                    IDbCommand command = _connection.CreateCommand();
-                    command.Connection = _connection;
-                    command.CommandText = @"INSERT INTO [Persons] 
+                #region Can be outside try
+                IDbCommand command = _connection.CreateCommand();
+                command.Connection = _connection;
+                command.CommandText = @"INSERT INTO [Persons] 
                         ([FirstName],[FamilyName],[BirthDate],[Address]) VALUES 
                         (@Name,@FamilyName,@BirthDate,@Address)";
-                    Extract(entity, command);
-                    #endregion
+                Extract(entity, command);
+                #endregion
 
-                    _connection.Open();
-                    //Perform DB operation here i.e. any CRUD operation 
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception e)
-                {
-                    // Log
-                    throw e;
-                }
+                _connection.Open();
+                //Perform DB operation here i.e. any CRUD operation 
+                command.ExecuteNonQuery();
             }
+            catch (Exception e)
+            {
+                // Log
+                throw e;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            //            }
         }
 
         public void Update(Person entity)
         {
-            using (_connection)
+            //            using (_connection) With "using" _connection is loosing the value of its constring property
+            //            {
+            try
             {
-                try
-                {
-                    #region Can be outside try
-                    IDbCommand command = _connection.CreateCommand();
-                    command.Connection = _connection;
-                    // System.Data.OleDb.OleDbException: Cannot update 'ID'; field not updateable.  [ID]= @Id, 
-                    command.CommandText = @"UPDATE [Persons] SET
+                #region Can be outside try
+                IDbCommand command = _connection.CreateCommand();
+                command.Connection = _connection;
+                // System.Data.OleDb.OleDbException: Cannot update 'ID'; field not updateable.  [ID]= @Id, 
+                command.CommandText = @"UPDATE [Persons] SET
                         [FirstName] = @Name,
                         [FamilyName] = @FamilyName,
                         [BirthDate] = @BirthDate,
                         [Address] = @Address 
                         WHERE ID = @Id";
-                    Extract(entity, command);
-                    // Set the Id also
-                    IDataParameter param = command.CreateParameter();
-                    param.ParameterName = "@Id";
-                    param.Value = entity.Id;
-                    command.Parameters.Add(param);
-                    #endregion
+                Extract(entity, command);
+                // Set the Id also
+                IDataParameter param = command.CreateParameter();
+                param.ParameterName = "@Id";
+                param.Value = entity.Id;
+                command.Parameters.Add(param);
+                #endregion
 
-                    _connection.Open();
-                    //Perform DB operation here i.e. any CRUD operation 
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception e)
-                {
-                    // Log
-                    throw e;
-                }
+                _connection.Open();
+                //Perform DB operation here i.e. any CRUD operation 
+                command.ExecuteNonQuery();
             }
+            catch (Exception e)
+            {
+                // Log
+                throw e;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            //            }
         }
 
         private void Extract(Person entity, IDbCommand command)
@@ -212,31 +224,35 @@ namespace Csn.OrmEdd3b.Dal.DataMappers
         }
         public void Delete(Person entity) // int
         {
-            using (_connection)
+            //            using (_connection) With "using" _connection is loosing the value of its constring property
+            //            {
+            try
             {
-                try
-                {
-                    #region Can be outside try
-                    IDbCommand command = _connection.CreateCommand();
-                    command.Connection = _connection;
-                    command.CommandText = @"DELETE FROM [Persons] WHERE ID = @Id";
-                    IDataParameter param = command.CreateParameter();
-                    param.ParameterName = "@Id";
-                    param.Value = entity.Id;
-                    command.Parameters.Add(param);
-                    #endregion
+                #region Can be outside try
+                IDbCommand command = _connection.CreateCommand();
+                command.Connection = _connection;
+                command.CommandText = @"DELETE FROM [Persons] WHERE ID = @Id";
+                IDataParameter param = command.CreateParameter();
+                param.ParameterName = "@Id";
+                param.Value = entity.Id;
+                command.Parameters.Add(param);
+                #endregion
 
-                    // System.InvalidOperationException: The ConnectionString property has not been initialized.
-                    _connection.Open();
-                    //Perform DB operation here i.e. any CRUD operation 
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception e)
-                {
-                    // Log
-                    throw e;
-                }
+                // System.InvalidOperationException: The ConnectionString property has not been initialized.
+                _connection.Open();
+                //Perform DB operation here i.e. any CRUD operation 
+                command.ExecuteNonQuery();
             }
+            catch (Exception e)
+            {
+                // Log
+                throw e;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            //            }
         }
     }
 }

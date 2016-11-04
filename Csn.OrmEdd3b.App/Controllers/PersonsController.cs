@@ -19,7 +19,7 @@ namespace Csn.OrmEdd3b.App.Controllers
         // private CsnOrmEdd3bDbContext db = new CsnOrmEdd3bDbContext();
 
         // 2. Working with our adapter between Ef and the App
-        // private EfUnitOfWork db = new EfUnitOfWork(new CsnOrmEdd3bDbContext());
+//-        private EfUnitOfWork db = new EfUnitOfWork(new CsnOrmEdd3bDbContext());
 
         // 3. Working with ADO
         // Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Stoyan\Source\Repos\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb
