@@ -77,7 +77,7 @@
             Console.Clear();
             
             // Controller
-            // IDataMapper<Person> dalPerson = new PersonDataMapper();
+            // IDataMapper<Person> dalPerson = new PersonFileDataMapper();
             // List<Person> persons = dalPerson.GetAll();
             IPersonServices personServices = new PersonServices();
             List<Person> persons = personServices.GetAll();
@@ -113,7 +113,7 @@
             person.Address = Console.ReadLine();
 
             // controller
-            IDataMapper<Person> dalPerson = new PersonDataMapper();
+            IDataMapper<Person> dalPerson = new PersonFileDataMapper();
             dalPerson.Insert(person);
         }
 
@@ -127,7 +127,7 @@
                 Console.Write("Please eneter the Id of a person to Update: ");
             }while(!int.TryParse(Console.ReadLine(), out id));
 
-            IDataMapper<Person> dalPerson = new PersonDataMapper();
+            IDataMapper<Person> dalPerson = new PersonFileDataMapper();
             Person person = dalPerson.Get(id);
 
             Console.Write("Please enter Name ({0}): ", person.Name);
@@ -156,9 +156,9 @@
                 Console.Write("Please eneter the Id of a person to Update: ");
             } while (!int.TryParse(Console.ReadLine(), out id));
 
-            IDataMapper<Person> dalPerson = new PersonDataMapper();
-            dalPerson.Delete(id);
+            IDataMapper<Person> dalPerson = new PersonFileDataMapper();
+            var person = dalPerson.Get(id);
+            dalPerson.Delete(person);
         }
-
     }
 }

@@ -7,16 +7,16 @@
     using System.Text;
     using System.Threading.Tasks;
     using System.IO;
-    public class PersonDataMapper : IDataMapper<Person>
+    public class PersonFileDataMapper : IDataMapper<Person>
     {
         private readonly string _file;
 
-        public PersonDataMapper()
+        public PersonFileDataMapper()
         {
             _file = "Person.csv";
         }
 
-        public PersonDataMapper(string file)
+        public PersonFileDataMapper(string file)
         {
             _file = file;
         }
@@ -52,7 +52,7 @@
             return id + 1;
         }
 
-        public Person Get(int id)
+        public Person Get(object id) // int
         {
             Person person = new Person();
             try
@@ -71,7 +71,7 @@
                         person.FamilyName = lineElements[2];
                         person.BirthDate = DateTime.Parse(lineElements[3]);
                         person.Address = lineElements[4];
-                        if (int.Parse(lineElements[0]) == id) break;
+                        if (int.Parse(lineElements[0]) == (int)id) break;
                         line = reader.ReadLine();
                     }
                 }
@@ -161,12 +161,12 @@
             SaveAll(persons);
         }
 
-        public void Delete(int id)
+        public void Delete(Person entity) // int, object - also doenst work
         {
             List<Person> persons = GetAll();
             for (int i = 0; i < persons.Count(); i++)
             {
-                if (persons[i].Id == id)
+                if (persons[i].Id == entity.Id) //(int)id)
                 {
                     persons.RemoveAt(i);
                     break;

@@ -9,13 +9,25 @@ using System.Web.Mvc;
 using Csn.OrmEdd3b.Models;
 using Csn.OrmEdd3b.Dal;
 using Csn.OrmEdd3b.Dal.UnitOfWork;
+using System.Data.OleDb;
 
 namespace Csn.OrmEdd3b.App.Controllers
 {
     public class PersonsController : Controller
     {
+        // 1. working directly with Ef. Code generator.
         // private CsnOrmEdd3bDbContext db = new CsnOrmEdd3bDbContext();
-        private EfUnitOfWork db = new EfUnitOfWork(new CsnOrmEdd3bDbContext());
+
+        // 2. Working with our adapter between Ef and the App
+        // private EfUnitOfWork db = new EfUnitOfWork(new CsnOrmEdd3bDbContext());
+
+        // 3. Working with ADO
+        // Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Stoyan\Source\Repos\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb
+//      <connectionStrings>
+//          <add name = "ConnectionString" connectionString="data source=.;Initial Catalog=MyDatabase;Integrated Security=SSPI" providerName="System.Data.SqlClient" />
+//      </connectionStrings>
+        // System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString
+        private AdoUnitOfWork db = new AdoUnitOfWork(new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Stoyan\Source\Repos\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb"));
 
         // GET: /Persons/
         public ActionResult Index()
@@ -125,7 +137,7 @@ namespace Csn.OrmEdd3b.App.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             // Person person = db.Persons.Find(id);
-            Person person = db.Persons.Get(id);
+            Person person = db.Persons.Get(id); // I bed the connection gets removed
             db.Persons.Remove(person);
             db.SaveChanges();
             return RedirectToAction("Index");

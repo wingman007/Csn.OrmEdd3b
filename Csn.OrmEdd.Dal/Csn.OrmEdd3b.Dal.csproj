@@ -65,16 +65,18 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataMappers\PersonDataMapper.cs" />
+    <Compile Include="DataMappers\PersonFileDataMapper.cs" />
     <Compile Include="Repositories\GenericEfRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
-    <Compile Include="Repositories\GenericFileAdoRepository.cs" />
+    <Compile Include="Repositories\GenericAdoRepository.cs" />
+    <Compile Include="UnitOfWork\AdoUnitOfWork.cs" />
     <Compile Include="UnitOfWork\EfUnitOfWork.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

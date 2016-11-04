@@ -12,7 +12,7 @@ namespace Csn.OrmEdd3b.Services
     {
         public List<Person> GetAll()
         {
-            IDataMapper<Person> dalPerson = new PersonDataMapper();
+            IDataMapper<Person> dalPerson = new PersonFileDataMapper();
             List<Person> persons = dalPerson.GetAll();
 
             return persons;

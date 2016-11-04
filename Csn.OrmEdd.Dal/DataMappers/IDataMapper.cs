@@ -10,14 +10,14 @@ namespace Csn.OrmEdd3b.Dal.DataMappers
     {
         int GetNextId();
 
-        T Get(int id);
-
         List<T> GetAll();
 
-        void Insert(T person);
+        T Get(object id); // int object
 
-        void Update(T person);
+        void Insert(T entity);
 
-        void Delete(int id);
+        void Update(T entity);
+
+        void Delete(T entity); // (object id);// int
     }
 }
