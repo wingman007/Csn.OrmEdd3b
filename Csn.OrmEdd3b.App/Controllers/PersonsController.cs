@@ -28,6 +28,7 @@ namespace Csn.OrmEdd3b.App.Controllers
         //      </connectionStrings>
         // System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString
 //-        private AdoUnitOfWork db = new AdoUnitOfWork(new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Stoyan\Source\Repos\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb"));
+//-        private AdoUnitOfWork db = new AdoUnitOfWork(new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\fmi\Source\Repos\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb;Persist Security Info=True"));
 
         // 4. Work with Files
         // Only the unit of work will be different
@@ -35,6 +36,7 @@ namespace Csn.OrmEdd3b.App.Controllers
         // private FileUnitOfWork db = new FileUnitOfWork(); // "C:\Users\Stoyan"
 
 //-        private FileUnitOfWork db = new FileUnitOfWork(@"C:\Users\Stoyan");
+//-        private FileUnitOfWork db = new FileUnitOfWork(@"C:\Users\fmi");
 
         // GET: /Persons/
         public ActionResult Index()
