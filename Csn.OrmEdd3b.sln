@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.Services", "Cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.App", "Csn.OrmEdd3b.App\Csn.OrmEdd3b.App.csproj", "{03852028-0E77-4728-A930-BB84E2EDF6ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.WebApi", "Csn.OrmEdd3b.WebApi\Csn.OrmEdd3b.WebApi.csproj", "{9F213A3A-36D0-46B5-980D-7B0FF5751F81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{03852028-0E77-4728-A930-BB84E2EDF6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03852028-0E77-4728-A930-BB84E2EDF6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03852028-0E77-4728-A930-BB84E2EDF6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F213A3A-36D0-46B5-980D-7B0FF5751F81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F213A3A-36D0-46B5-980D-7B0FF5751F81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F213A3A-36D0-46B5-980D-7B0FF5751F81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F213A3A-36D0-46B5-980D-7B0FF5751F81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

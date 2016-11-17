@@ -10,6 +10,7 @@ using Csn.OrmEdd3b.Models;
 using Csn.OrmEdd3b.Dal;
 using Csn.OrmEdd3b.Dal.UnitOfWork;
 using System.Data.OleDb;
+using System.Data.Odbc;
 
 namespace Csn.OrmEdd3b.App.Controllers
 {
@@ -29,6 +30,13 @@ namespace Csn.OrmEdd3b.App.Controllers
         // System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString
 //-        private AdoUnitOfWork db = new AdoUnitOfWork(new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Stoyan\Source\Repos\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb"));
 //-        private AdoUnitOfWork db = new AdoUnitOfWork(new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\fmi\Source\Repos\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb;Persist Security Info=True"));
+
+        // private AdoUnitOfWork db = new AdoUnitOfWork(new OdbcConnection());
+        // ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+//-        private AdoUnitOfWork db = new AdoUnitOfWork(new OdbcConnection(@"DRIVER={MySQL ODBC 5.3 Driver};SERVER=localhost;DATABASE=ormedd;USER=ormedd;PASSWORD=ormedd;OPTION=3;"));
+
+//-        private AdoUnitOfWork db = new AdoUnitOfWork(new OdbcConnection(@"DSN=OrmEdd;uid=ormedd;pwd=ormedd;DATABASE=ormedd"));
+
 
         // 4. Work with Files
         // Only the unit of work will be different
