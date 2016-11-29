@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var list = $('#list');
+            $('#btn').click(function () {
+                $.ajax({
+                    type:'GET',
+                    url: 'http://localhost:1977/api/persons/', // http://localhost:1977/api/persons/ or api/Persons
+                    dataType: 'json', // 'jsonp' after adding the jsonp formatter to our Web API jsonp with 
+                    success: function(data){
+                        list.empty();
+                        $.each(data, function (index, value) {
+                            var fullName = value.Name + ' ' + value.FamilyName;
+                            list.append('<li>' + fullName + '</li>');
+                        });
+                    }
+                });
+            });
+
+
+            $('#btnClr').click(function () {
+                list.empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <input id="btn" type="button" value="Get All" />
+    <input id="btnClr" type="button" value="Clear" />
+    <ul id="list"></ul>
+</body>
+</html>
