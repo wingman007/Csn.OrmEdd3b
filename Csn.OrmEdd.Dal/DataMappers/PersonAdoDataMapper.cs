@@ -129,15 +129,37 @@ namespace Csn.OrmEdd3b.Dal.DataMappers
                 #region Can be outside try
                 IDbCommand command = _connection.CreateCommand();
                 command.Connection = _connection;
+                command.CommandType = CommandType.Text;
+
                 command.CommandText = @"INSERT INTO [Persons] 
                         ([FirstName],[FamilyName],[BirthDate],[Address]) VALUES 
                         (@Name,@FamilyName,@BirthDate,@Address)";
+
+                //command.CommandText = @"INSERT INTO [Persons] 
+                //        ([FirstName],[FamilyName],[BirthDate],[Address]) VALUES 
+                //        (@Name,@FamilyName,@BirthDate,@Address); SELECT SCOPE_IDENTITY();"; // to return the last inserted ID
+
+                //command.CommandText = @"INSERT INTO [Persons] 
+                //        ([FirstName],[FamilyName],[BirthDate],[Address])
+                //        OUTPUT inserted.ID 
+                //        VALUES (@Name,@FamilyName,@BirthDate,@Address); SELECT SCOPE_IDENTITY();"; // to return the last inserted ID
+
                 Extract(entity, command);
                 #endregion
 
                 _connection.Open();
                 //Perform DB operation here i.e. any CRUD operation 
                 command.ExecuteNonQuery();
+                // http://stackoverflow.com/questions/14299098/return-last-inserted-id-without-using-a-second-query
+                // entity.Id = (int)command.ExecuteScalar(); // to get the last inserted ID
+                // Optional get the last inserted ID
+                // command.CommandText = "SELECT NewID = SCOPE_IDENTITY()"; // "Undefined function 'SCOPE_IDENTITY' in expression.",
+                command.CommandText = "SELECT MAX(ID) FROM Persons;"; // ToDo find a better way to get the last inserted ID. Concurency and other problems!!!               
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    //if (reader.Read()) entity.Id = (int)reader["NewID"];
+                    if (reader.Read()) entity.Id = (int)reader[0];
+                }
             }
             catch (Exception e)
             {
