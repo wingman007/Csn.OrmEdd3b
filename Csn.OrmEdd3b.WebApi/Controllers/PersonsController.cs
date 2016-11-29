@@ -14,6 +14,8 @@
 
     public class PersonsController : ApiController
     {
+        // 1. Add EF to the project. Or even better add Identity EF
+        // 2. Add in Web.config the connection string. Copy it from Web.config in App project
         private IUnitOfWork db = new EfUnitOfWork(new CsnOrmEdd3bDbContext());
         // private AdoUnitOfWork db = new AdoUnitOfWork(new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\fmi\Source\Repos\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb;Persist Security Info=True"));
         // private AdoUnitOfWork db = new AdoUnitOfWork(new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Stoyan\Source\Repos\Csn.OrmEdd3b\Csn.OrmEdd.Console\App_Data\CsnOrmEdd3b.mdb;Persist Security Info=True"));
