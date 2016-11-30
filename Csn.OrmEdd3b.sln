@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.App", "Csn.Orm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.WebApi", "Csn.OrmEdd3b.WebApi\Csn.OrmEdd3b.WebApi.csproj", "{9F213A3A-36D0-46B5-980D-7B0FF5751F81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csn.OrmEdd3b.Spa", "Csn.OrmEdd3b.Spa\Csn.OrmEdd3b.Spa.csproj", "{4BC47D56-DAF5-41BF-AEF9-1D88A1D5F253}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{9F213A3A-36D0-46B5-980D-7B0FF5751F81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F213A3A-36D0-46B5-980D-7B0FF5751F81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F213A3A-36D0-46B5-980D-7B0FF5751F81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BC47D56-DAF5-41BF-AEF9-1D88A1D5F253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BC47D56-DAF5-41BF-AEF9-1D88A1D5F253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BC47D56-DAF5-41BF-AEF9-1D88A1D5F253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BC47D56-DAF5-41BF-AEF9-1D88A1D5F253}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html data-ng-app="CsnOrmEdd">
+<head>
+    <meta charset="urf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+    <title>Angular SPA</title>
+
+    <!-- We have to install AngulaJS in this page -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- SCROLLS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style type="text/css">
+        html {
+            overflow-y: scroll;
+        }
+
+        body {
+            padding-top: 50px;
+        }
+
+        #todo-list {
+            margin-bottom: 30px;
+        }
+    </style>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+    <!-- SPELLS -->
+    <!-- Custom code -->
+    <!-- app.js needs to be included before maincontroller.js -->
+    <script type="text/javascript" src="Scripts/core.js"></script>
+    <!-- <script type="text/javascript" src="maincontroller.js"></script> -->
+</head>
+
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+<body ng-controller="mainController">
+    <div class="container">
+
+        <!-- HEADER AND TODO COUNT -->
+        <div class="jumbotron text-center">
+            <h1>I'm a Person-aholic <span class="label label-info">{{ persons.length }}</span></h1>
+        </div>
+
+        <!-- TODO LIST -->
+        <div id="todo-list" class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+
+                <!-- LOOP OVER THE TODOS IN $scope.todos -->
+                <div class="checkbox" ng-repeat="person in persons">
+                    <label>
+                        <input type="checkbox" ng-click="deletePerson(person.Id)"> {{ person.Name + " " + person.FamilyName}}
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FORM TO CREATE TODOS -->
+        <div id="todo-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form>
+                    <div class="form-group">
+
+                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                        <input type="text" class="form-control input-lg text-center" placeholder="Please, enter the First Name of the person" ng-model="formData.Name">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Please, enter the Family of the person" ng-model="formData.FamilyName">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Please, enter the Birthdate of the person" ng-model="formData.BirthDate">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Please, enter the Address of the person" ng-model="formData.Address">
+                    </div>
+
+                    <!-- createToDo() WILL CREATE NEW TODOS -->
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createPerson()">Add</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var list = $('#list');
+            $('#btn').click(function () {
+                $.ajax({
+                    type:'GET',
+                    url: 'http://localhost:1977/api/persons/', // http://localhost:1977/api/persons/ or api/Persons
+                    dataType: 'json', // 'jsonp' after adding the jsonp formatter to our Web API jsonp with
+                    success: function(data){
+                        list.empty();
+                        $.each(data, function (index, value) {
+                            var fullName = value.Name + ' ' + value.FamilyName;
+                            list.append('<li>' + fullName + '</li>');
+                        });
+                    }
+                });
+            });
+
+
+            $('#btnClr').click(function () {
+                list.empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <input id="btn" type="button" value="Get All" />
+    <input id="btnClr" type="button" value="Clear" />
+    <ul id="list"></ul>
+</body>
+</html>
+-->
